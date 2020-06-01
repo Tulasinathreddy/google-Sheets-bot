@@ -1,4 +1,4 @@
-let libPrefix = "spreadsheet-Lib-"
+let libPrefix = "SpreadSheet-Lib-"
 
 function throwError(err){
   throw "Google SpreadSheet Lib: " + err;
@@ -27,8 +27,15 @@ function getAppUrl(){
 function checkOptions(options){
   if(!options){ throwError("Need pass options") }
   if(!options.sheetName){ throwError("Need pass sheetName") }
+  if(!options.onSuccess){ throwError("Need pass onSuccess command name") }
 }
 
+function getCallback(options){
+  let onError = " ";
+  if(onError){ onError = options.onError }
+  
+  return libPrefix + "onSuccess " + options.onSuccess + " " + onError;
+}
 
 function getErrCallback(options){
   let onError = " ";
@@ -46,6 +53,7 @@ function getHeader(options){
 
   HTTP.get({
     url: appUrl + "?sheetName=" + options.sheetName + qrow,
+    success: getCallback(options),
     error: getErrCallback(options),
   })
 }
@@ -67,6 +75,7 @@ function postRow(options, isEdit){
 
   HTTP.post( {
     url: appUrl,
+    success: getCallback(options),
     error: getErrCallback(options),
     body: options
   })
@@ -80,6 +89,23 @@ function editRow(options){
   postRow(options, true)
 }
 
+function onSuccess(){
+  let callback = params.split(" ")[0];
+  let errCalback = params.split(" ")[1];
+
+  var result = content.split("APP-RESULT")[1];
+
+  if(!result){
+    // error
+    var arr = content.split("width:600px");
+    var error = arr[1].split("<")[0]
+    return Bot.runCommand(errCalback, {error: error});
+  }
+
+  result = decodeURI(result);
+  result = JSON.parse(result)
+  Bot.runCommand(callback, result);
+}
 
 function onError(){
   let errCalback = params;
@@ -96,4 +122,5 @@ publish({
   editRow: editRow
 })
 
+on(libPrefix + "onSuccess", onSuccess );
 on(libPrefix + "onError", onError);
