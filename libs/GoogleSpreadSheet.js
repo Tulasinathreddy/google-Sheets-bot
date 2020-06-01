@@ -27,15 +27,8 @@ function getAppUrl(){
 function checkOptions(options){
   if(!options){ throwError("Need pass options") }
   if(!options.sheetName){ throwError("Need pass sheetName") }
-  if(!options.onSuccess){ throwError("Need pass onSuccess command name") }
 }
 
-function getCallback(options){
-  let onError = " ";
-  if(onError){ onError = options.onError }
-  
-  return libPrefix + "onSuccess " + options.onSuccess + " " + onError;
-}
 
 function getErrCallback(options){
   let onError = " ";
@@ -90,7 +83,6 @@ function editRow(options){
 }
 
 
-
 function onError(){
   let errCalback = params;
   Bot.sendMessage("Download error");
@@ -106,5 +98,4 @@ publish({
   editRow: editRow
 })
 
-on(libPrefix + "onSuccess", onSuccess );
 on(libPrefix + "onError", onError);
