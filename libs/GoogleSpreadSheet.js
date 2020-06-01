@@ -46,7 +46,6 @@ function getHeader(options){
 
   HTTP.get({
     url: appUrl + "?sheetName=" + options.sheetName + qrow,
-    success: getCallback(options),
     error: getErrCallback(options),
   })
 }
@@ -68,7 +67,6 @@ function postRow(options, isEdit){
 
   HTTP.post( {
     url: appUrl,
-    success: getCallback(options),
     error: getErrCallback(options),
     body: options
   })
