@@ -4,9 +4,9 @@
   need_reply: 
   auto_retry_time: 
   folder: 
-  answer: 
+  answer: done
   keyboard: 
   aliases: 
 CMD*/
 
-Libs.GoogleSpreadSheet.setUrl("https://script.google.com/macros/s/AKfycbypZleVdLDPnAfPlASITxIWhbfbJGx0AyEyfzU1JIgfmvQEK/exec");
+Libs.GoogleSpreadSheet.setUrl("https://script.google.com/macros/s/AKfycbypZleVdLDPnAfPlASITxIWhbfbJGx0AyEyfzUKNE1JIgfmvQEK/exec")

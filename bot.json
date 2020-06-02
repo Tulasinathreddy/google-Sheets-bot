@@ -1,6 +1,6 @@
 {
   "bb_sync_version":"1.0",
-  "name":"DTC_LOTTERY_BOT",
+  "name":"google_bb_bot",
   "csv_url":null,
   "git_remote":"git@github.com:Tulasinathreddy/google-Sheets-bot.git"
 }
