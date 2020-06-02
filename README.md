@@ -1,5 +1,5 @@
-# DTC_LOTTERY_BOT - chat bot
-It is repository for chat bot: [@DTC_LOTTERY_BOT](https://t.me/DTC_LOTTERY_BOT)
+# google_bb_bot - chat bot
+It is repository for chat bot: [@google_bb_bot](https://t.me/google_bb_bot)
 
 ## What it is?
 This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.

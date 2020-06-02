@@ -1,5 +1,5 @@
 /*CMD
-  command: /postdata
+  command: /data
   help: 
   need_reply: 
   auto_retry_time: 
@@ -11,12 +11,11 @@ CMD*/
 
 let newRow = {
   'Country': 'Italy',
-  'Age': '25',
-  'Do you like Bots.Business?': 'YES'
+  'Age': '25'
 }
 
 let prms = {
-  sheetName: "data",  // sheet name
+  sheetName: "Sheet1",  // sheet name
   row: newRow,
   onSuccess: "onSuccess",  // this command will be executed on Success
   onError: "onError"       // this command will be executed on Error

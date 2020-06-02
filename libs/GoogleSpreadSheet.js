@@ -1,4 +1,4 @@
-let libPrefix = "SpreadSheet-Lib-"
+let libPrefix = "spreadsheet-Lib-"
 
 function throwError(err){
   throw "Google SpreadSheet Lib: " + err;
